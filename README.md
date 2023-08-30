@@ -53,9 +53,9 @@ docker exec -it battlebit-server-docker sed -i 's/false/true/g' /home/steam/batt
 * Create data folder for BattleBitAPIRunner:
 
 ```
-mkdir -p data/runner/modules data/runner/dependencies data/runner/configurations
+mkdir -p config/runner/modules config/runner/dependencies config/runner/configurations
 cp appsettings.json.example config/runner/appsettings.json
-chown 1000:100 -R data/runner
+chown 1000:100 -R config/runner
 ```
 
 * Refer [Hosting Guide](https://github.com/BattleBit-Community-Servers/BattleBitAPIRunner/wiki/Hosting-Guide) to create folders & files accordingly:
