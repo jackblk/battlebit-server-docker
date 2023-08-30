@@ -2,8 +2,14 @@
 
 # Exit on error
 set -e
-# Set the correct Wine prefix to use user's home directory
-export WINEPREFIX=/home/steam/.wine
+
+# Wine settings
+# export WINEPREFIX=/home/steam/.wine
+# export WINEDLLOVERRIDES="mscoree=n,b;mshtml=n,b"
+export WINEARCH=win64
+export WINEDEBUG=-all
+winetricks sound=disabled
+
 # Remove X Server lock
 rm -rf /tmp/.X1-lock
 # Set up virtual X server using Xvfb

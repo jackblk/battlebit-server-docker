@@ -10,11 +10,14 @@ Hosting Battlebit on Linux is HIGHLY EXPERIMENTAL :warning:
 * Copy `server.conf.example` to `config` folder and rename it to `server.conf`
 * Edit `.env` and `server.conf` to your liking
 * (Optional) Login with 2FA, see below
+* **IMPORTANT** Create data folders with the right permission: `mkdir -p data/Steam data/battlebit && chown 1000:100 -R data`
 * Run `docker compose up -d` or `make` to start the server
 * Run `docker compose down -v` or `make stop-server` to stop the server
 
 ### Notes
 
+* This docker image uses `steam` user (non-root), has ID: `1000:100`. If you encounter permission issues for `data` folder,
+remove the `data` folder and re-create it with the right permisison.
 * Server should have 2 ports open:
   * Game port (default: 30000/udp)
   * `Query port = Game port + 1` (default: 30001/udp)
@@ -27,10 +30,11 @@ You only need to do this at the first time, and only when the login session is e
 
 ```shell
 docker run --rm -it \
-    -v $(pwd)/data/battlebit:/home/steam/battlebit \
-    -v $(pwd)/data/Steam:/root/Steam \
-    --env-file ./config/.env \
-    ghcr.io/jackblk/battlebit-server-docker bash login.sh
+  --name battlebit-docker \
+  -v $(pwd)/data/battlebit:/home/steam/battlebit \
+  -v $(pwd)/data/Steam:/home/steam/Steam \
+  --env-file ./config/.env \
+  ghcr.io/jackblk/battlebit-server-docker bash login.sh
 ```
 
 ### Accept EULA

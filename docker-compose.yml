@@ -2,7 +2,7 @@ version: "3"
 services:
   battlebit-server-docker:
     container_name: battlebit-server-docker
-    pull_policy: always
+    # pull_policy: always
     image: ghcr.io/jackblk/battlebit-server-docker:latest
     # build:
     #   context: .
@@ -10,7 +10,7 @@ services:
     volumes:
       - ./config:/home/steam/config
       - ./data/battlebit:/home/steam/battlebit
-      - ./data/Steam:/root/Steam
+      - ./data/Steam:/home/steam/Steam
     env_file:
       - config/.env
     ports:
