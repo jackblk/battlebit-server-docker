@@ -10,6 +10,7 @@ Hosting Battlebit on Linux is HIGHLY EXPERIMENTAL :warning:
 * Copy `server.conf.example` to `config` folder and rename it to `server.conf`
 * Edit `.env` and `server.conf` to your liking
 * (Optional) Login with 2FA, see below
+* (Optional) If you use custom API from [BattleBitAPIRunner](https://github.com/BattleBit-Community-Servers/BattleBitAPIRunner), see below
 * **IMPORTANT** Create data folders with the right permission: `mkdir -p data/Steam data/battlebit && chown 1000:100 -R data`
 * Run `docker compose up -d` or `make` to start the server
 * Run `docker compose down -v` or `make stop-server` to stop the server
@@ -46,6 +47,24 @@ Or:
 ```shell
 docker exec -it battlebit-server-docker sed -i 's/false/true/g' /home/steam/battlebit/eula.txt
 ```
+
+### BattleBitAPIRunner
+
+* Create data folder for BattleBitAPIRunner:
+
+```
+mkdir -p data/runner/modules data/runner/dependencies data/runner/configurations
+cp appsettings.json.example config/runner/appsettings.json
+chown 1000:100 -R data/runner
+```
+
+* Refer [Hosting Guide](https://github.com/BattleBit-Community-Servers/BattleBitAPIRunner/wiki/Hosting-Guide) to create folders & files accordingly:
+  * `appsettings.json`
+  * `modules/...`
+  * `dependencies/...`
+  * `configurations/...`
+* Edit `ApiEndpoint=battlebit-runner:29999` in `server.conf` to use custom API endpoint
+* Uncomment everything in `battlebit-runner` service in `docker-compose.yml`
 
 ## Credits
 
