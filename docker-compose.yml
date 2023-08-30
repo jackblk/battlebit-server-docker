@@ -21,6 +21,6 @@ services:
     image: ghcr.io/jackblk/battlebit-api-runner:latest
     volumes:
       # - ./config/runner/appsettings.json:/app/appsettings.json
-      - ./config/runner/data:/app
+      - ./config/runner/data:/app/data
     # ports:
     #   - "29999:29999"
