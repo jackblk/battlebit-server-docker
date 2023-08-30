@@ -2,9 +2,10 @@ FROM debian:bookworm-slim
 
 ARG UNAME=steam
 ARG UID=1000
-ARG GID=100
+ARG GID=1000
 
-RUN useradd -l -m -u $UID -g $GID -o -s /bin/bash $UNAME
+RUN groupadd -g $GID -o $UNAME \
+    && useradd -l -m -u $UID -g $GID -o -s /bin/bash $UNAME
 
 # Set environment variables
 ENV DEBIAN_FRONTEND=noninteractive
