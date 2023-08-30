@@ -32,3 +32,7 @@ docker run --rm -it \
     --env-file ./config/.env \
     ghcr.io/jackblk/battlebit-server-docker bash login.sh
 ```
+
+## Credits
+
+* [DasIschBims/BattleBitDocker](https://github.com/DasIschBims/BattleBitDocker)

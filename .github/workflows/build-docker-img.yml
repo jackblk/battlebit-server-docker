@@ -5,6 +5,11 @@ on:
   push:
     branches:
       - "main"
+    paths-ignore:
+      - "config/**"
+      - ".env.example"
+      - "server.conf.example"
+      - "README.md"
 
 jobs:
   build-docker-img:
