@@ -10,6 +10,7 @@ on:
       - ".env.example"
       - "server.conf.example"
       - "README.md"
+      - "docker-compose.yml"
 
 jobs:
   build-docker-img:

@@ -33,6 +33,14 @@ docker run --rm -it \
     ghcr.io/jackblk/battlebit-server-docker bash login.sh
 ```
 
+### Accept EULA
+
+Run this while the container is running:
+
+```shell
+docker exec -it battlebit-server-docker sed -i 's/false/true/g' /home/steam/battlebit/eula.txt
+```
+
 ## Credits
 
 * [DasIschBims/BattleBitDocker](https://github.com/DasIschBims/BattleBitDocker)
