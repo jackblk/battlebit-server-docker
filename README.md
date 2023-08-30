@@ -39,7 +39,9 @@ docker run --rm -it \
 
 ### Accept EULA
 
-Run this while the container is running:
+Run this while the container is running: `make accept-eula`
+
+Or:
 
 ```shell
 docker exec -it battlebit-server-docker sed -i 's/false/true/g' /home/steam/battlebit/eula.txt

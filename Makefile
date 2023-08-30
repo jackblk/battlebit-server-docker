@@ -7,6 +7,9 @@ run-server:
 stop-server:
 	@docker compose down -v
 
+accept-eula:
+	@docker exec -it battlebit-server-docker sed -i 's/false/true/g' /home/steam/battlebit/eula.txt
+
 build-docker:
 	@docker build --rm -t ghcr.io/jackblk/battlebit-server-docker .
 
