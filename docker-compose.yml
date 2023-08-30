@@ -16,3 +16,12 @@ services:
     ports:
       - "30000:30000/udp"
       - "30001:30001/udp"
+  # battlebit-runner:
+  #   image: ghcr.io/jackblk/battlebit-api-runner:latest
+  #   volumes:
+  #     - ./config/runner/appsettings.json:/app/appsettings.json
+  #     - ./config/runner/modules:/app/modules
+  #     - ./config/runner/dependencies:/app/dependencies
+  #     - ./config/runner/configurations:/app/configurations
+  #   # ports:
+  #   #   - "29999:29999"
