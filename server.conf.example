@@ -1,0 +1,18 @@
+# Server Settings
+Name="Test Server"
+Password="abc123"
+AntiCheat=EAC
+Hz=60
+Port=30000
+MaxPing=150
+LocalIP=0.0.0.0
+VoxelMode=false
+# Custom API Endpoint, example: 127.0.0.1:29999
+ApiEndpoint=
+# Server Size
+FixedSize=small
+FirstSize=small
+MaxSize=small
+# Gameplay
+FirstGamemode=rush
+FirstMap=Azagor

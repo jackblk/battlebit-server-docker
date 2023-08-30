@@ -1,0 +1,8 @@
+.gitignore
+docker-compose.yml
+Dockerfile
+README.md
+data/
+tmp/
+config/
+.github/

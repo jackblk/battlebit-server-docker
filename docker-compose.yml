@@ -1,0 +1,18 @@
+version: "3"
+services:
+  battlebit-docker:
+    container_name: battlebit-docker
+    pull_policy: always
+    image: ghcr.io/jackblk/battlebit-server-docker:latest
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    volumes:
+      - ./config:/home/steam/config
+      - ./data/battlebit:/home/steam/battlebit
+      - ./data/Steam:/root/Steam
+    env_file:
+      - config/.env
+    ports:
+      - "30000:30000/udp"
+      - "30001:30001/udp"
