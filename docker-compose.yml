@@ -16,6 +16,11 @@ services:
     ports:
       - "30000:30000/udp"
       - "30001:30001/udp"
+    # NOTE: static ip is for static config on battlebit-runner
+    # if you don't use battlebit-runner, feel free to delete all `networks` related stuff
+    networks:
+      static-network:
+        ipv4_address: 172.20.128.10
   battlebit-runner:
     container_name: battlebit-runner
     image: ghcr.io/jackblk/battlebit-api-runner:latest
@@ -24,3 +29,10 @@ services:
       - ./config/runner/data:/app/data
     # ports:
     #   - "29999:29999"
+    networks:
+      static-network:
+networks:
+  static-network:
+    ipam:
+      config:
+        - subnet: 172.20.128.0/28
