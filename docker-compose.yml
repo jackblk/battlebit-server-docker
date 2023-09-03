@@ -4,6 +4,7 @@ services:
     container_name: battlebit-server-docker
     # pull_policy: always
     image: ghcr.io/jackblk/battlebit-server-docker:latest
+    restart: unless-stopped
     # build:
     #   context: .
     #   dockerfile: Dockerfile
@@ -24,6 +25,7 @@ services:
   battlebit-runner:
     container_name: battlebit-runner
     image: ghcr.io/jackblk/battlebit-api-runner:latest
+    restart: unless-stopped
     volumes:
       # - ./config/runner/appsettings.json:/app/appsettings.json
       - ./config/runner/data:/app/data
